@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -15,7 +16,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        //Retourne tout les posts
+        $posts = Post::all();
+        return view('posts.index')->with(compact('posts'));
     }
 
     /**
@@ -47,7 +50,16 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        //Affiche le post voulu
+
+        try{
+
+            $post = Post::findOrFail($id);
+            return view('posts.show')->with(compact('post'));
+
+        }catch(\Exception $e){
+            return redirect()->route('posts.index')->with(['erreur' => 'Projet introuvable']);
+        }
     }
 
     /**
