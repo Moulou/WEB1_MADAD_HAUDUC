@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Project;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-class ProjetController extends Controller
+class ProjectController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +16,10 @@ class ProjetController extends Controller
      */
     public function index()
     {
-        //
+        //Retourne tout les projets
+
+        $projects = Project::all();
+        return view('projet.index')->with(compact('projects'));
     }
 
     /**
@@ -48,6 +52,14 @@ class ProjetController extends Controller
     public function show($id)
     {
         //
+        try{
+
+            $project = Project::findOrFail($id);
+            return view('projet.show')->with(compact('project'));
+
+        }catch(\Exception $e){
+            return redirect()->route('projet.index')->with(['erreur' => 'Projet introuvable']);
+        }
     }
 
     /**

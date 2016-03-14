@@ -14,19 +14,10 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('nom_projet');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
-            $table->string('name');
-            $table->string('fonction', '100');
-            $table->string('adresse');
-            $table->string('email');
-            $table->string('tel');
-            $table->text('type');
-            $table->longText('contexte');
-            $table->longText('demande');
-            $table->text('objectif');
-            $table->longText('contrainte');
+            $table->text('titre');
+            $table->longText('contenu');
             $table->timestamps();
         });
     }

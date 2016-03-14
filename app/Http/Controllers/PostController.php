@@ -17,6 +17,7 @@ class PostController extends Controller
     public function index()
     {
         //Retourne tout les posts
+
         $posts = Post::all();
         return view('posts.index')->with(compact('posts'));
     }
@@ -58,7 +59,7 @@ class PostController extends Controller
             return view('posts.show')->with(compact('post'));
 
         }catch(\Exception $e){
-            return redirect()->route('posts.index')->with(['erreur' => 'Projet introuvable']);
+            return redirect()->route('posts.index')->with(['erreur' => 'Article introuvable']);
         }
     }
 

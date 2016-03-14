@@ -39,5 +39,5 @@ Route::group(['middleware' => ['web']], function () {
         return view('profil.profil');
     });
 
-    Route::resource('/projet', 'ProjetController');
+    Route::resource('/projet', 'ProjectController');
 });
