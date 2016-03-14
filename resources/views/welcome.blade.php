@@ -38,11 +38,9 @@
     <body>
         <div class="container">
             <div class="content">
-<<<<<<< HEAD
-                <div class="title">Laravel 6</div>
-=======
+
                 <div class="title">Laravel 5 bonjour</div>
->>>>>>> de6cf0e141c7758492bb1274f5e901a4a580958b
+
             </div>
         </div>
     </body>
