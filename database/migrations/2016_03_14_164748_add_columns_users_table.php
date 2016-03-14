@@ -13,9 +13,9 @@ class AddColumnsUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('fonction')->after('name');
-            $table->string('adresse')->after('fonction');
-            $table->integer('tel')->after('adresse');
+            $table->string('fonction')->nullable()->after('name');
+            $table->string('adresse')->nullable()->after('fonction');
+            $table->integer('tel')->nullable()->after('adresse');
         });
     }
 
