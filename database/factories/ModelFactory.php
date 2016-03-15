@@ -14,8 +14,19 @@
 $factory->define(App\Models\User::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
+        'fonction' => $faker->text(10),
         'email' => $faker->email,
+        'tel' => $faker->phoneNumber,
+        'admin' => mt_rand(0, 1),
         'password' => bcrypt(str_random(10)),
         'remember_token' => str_random(10),
+    ];
+});
+
+$factory->define(App\Models\Post::class, function (Faker\Generator $faker) {
+    return [
+        'user_id' => mt_rand(1, 10),
+        'titre' => $faker->text(10),
+        'contenu' => $faker->text,
     ];
 });
