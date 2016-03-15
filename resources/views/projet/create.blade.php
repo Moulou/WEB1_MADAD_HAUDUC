@@ -7,7 +7,7 @@
 
     {!! Form::open(['route' => 'projet.store', 'method' => 'POST']) !!}
 
-
+    Auteur : {{\Illuminate\Support\Facades\Auth::user()->name}}
 
 <div class="form-group">
     {!! Form::text('nom_projet', null, [

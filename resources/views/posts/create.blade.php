@@ -9,19 +9,20 @@
 {!! Form::open(['route' => 'posts.store', 'method' => 'POST']) !!}
 
 
+   Auteur : {{\Illuminate\Support\Facades\Auth::user()->name}}
 
-<div class="form-group">
-    {!! Form::text('titre', null, [
-        'class' => 'form-control',
-        'placeholder' => 'Titre de l\'article'
-    ]) !!}
-</div>
+        <div class="form-group">
+            {!! Form::text('titre', null, [
+                'class' => 'form-control',
+                'placeholder' => 'Titre de l\'article'
+            ]) !!}
+        </div>
 
-<div class="form-group">
-    {!! Form::textarea('contenu', null, [
-    'class' => 'form-control',
-    'placeholder' => 'Votre article']) !!}
-</div>
+        <div class="form-group">
+            {!! Form::textarea('contenu', null, [
+            'class' => 'form-control',
+            'placeholder' => 'Votre article']) !!}
+        </div>
 
 {!! Form::submit('Envoyer', ['class' => 'btn btn-success']) !!}
 {!! Form::close() !!}

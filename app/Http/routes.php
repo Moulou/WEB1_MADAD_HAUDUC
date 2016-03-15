@@ -38,4 +38,8 @@ Route::group(['middleware' => ['web']], function () {
     Route::resource('/projet', 'ProjectController');
 
     Route::resource('/user', 'UserController');
+
+    Route::get('/contact', function(){
+        return view('contact.contact');
+    });
 });
