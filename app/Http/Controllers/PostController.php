@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -30,6 +31,9 @@ class PostController extends Controller
     public function create()
     {
         //
+        $users = User::all()->lists('name', 'id');
+
+        return view('posts.create')->with(compact('users'));
     }
 
     /**
@@ -41,6 +45,17 @@ class PostController extends Controller
     public function store(Request $request)
     {
         //
+        $post = new Post;
+
+        $post->user_id  = $request->user_id;
+        $post->titre    = $request->titre;
+        $post->contenu  = $request->contenu;
+
+        $post->save();
+
+        return redirect()
+            ->route('posts.show', $post->id)
+            ->with(compact('post'));
     }
 
     /**

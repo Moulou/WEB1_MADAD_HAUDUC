@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Project;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -30,6 +31,11 @@ class ProjectController extends Controller
     public function create()
     {
         //
+
+        $users = User::all()->lists('name', 'id');
+        $type = Project::all()->lists('type');
+
+        return view('projet.create')->with(compact('users', 'type'));
     }
 
     /**
@@ -41,6 +47,30 @@ class ProjectController extends Controller
     public function store(Request $request)
     {
         //
+        $projet = new Project;
+
+        $projet->user_id  = Auth::user()->id;
+        $projet->nom_projet = $request->nom_projet;
+        $projet->name  = $request->name;
+        $projet->fonction  = $request->fonction;
+        $projet->adresse  = $request->adresse;
+        $projet->email  = $request->email;
+        $projet->tel  = $request->tel;
+        $projet->fiche_identite  = $request->fiche_identite;
+        $projet->type  = $request->type;
+        $projet->contexte  = $request->contexte;
+        $projet->demande  = $request->demande;
+        $projet->objectif  = $request->objectif;
+        $projet->contrainte  = $request->contrainte;
+
+
+
+        $projet->save();
+
+        return redirect()
+            ->route('projet.show', $projet->id)
+            ->with(compact('post'));
+
     }
 
     /**
