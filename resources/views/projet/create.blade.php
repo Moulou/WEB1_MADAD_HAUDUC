@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+    @include('partials.projet.errors')
 <div class="container-fluid">
     <h1 class="text-center">DEMANDE D’INSCRIPTION A LA BOURSE AUX PROJETS DE L’IIM</h1>
 
@@ -50,7 +51,7 @@
         'placeholder' => 'La fiche d\'identité du contact']) !!}
     </div>
 
-    <h1>DESCRIPTIF DU PROJET</h1>
+    <h1 class="text-center">DESCRIPTIF DU PROJET</h1>
     <div class="form-group">
         {!! Form::select('type', $type, null, ['class' => 'form-control']) !!}
 

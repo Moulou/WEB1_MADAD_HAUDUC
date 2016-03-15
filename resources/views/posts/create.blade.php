@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>hello</h1>
+    @include('partials.post.errors')
+<div class="container-fluid">
+    <h1 class="text-center">POSTER UN ARTICLE</h1>
 
 
 {!! Form::open(['route' => 'posts.store', 'method' => 'POST']) !!}
@@ -16,10 +18,12 @@
 </div>
 
 <div class="form-group">
-    {!! Form::textarea('content', null, ['class' => 'form-control']) !!}
+    {!! Form::textarea('content', null, [
+    'class' => 'form-control',
+    'placeholder' => 'Votre article']) !!}
 </div>
 
 {!! Form::submit('Envoyer', ['class' => 'btn btn-success']) !!}
 {!! Form::close() !!}
-
+</div>
 @endsection

@@ -44,12 +44,12 @@ class ProjectController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Requests\ValidateProjectRequest $request)
     {
         //
         $projet = new Project;
 
-        $projet->user_id  = Auth::user()->id;
+        $projet->user_id  = $request->user_id;
         $projet->nom_projet = $request->nom_projet;
         $projet->name  = $request->name;
         $projet->fonction  = $request->fonction;
