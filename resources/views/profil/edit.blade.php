@@ -44,8 +44,9 @@
                         'placeholder' => 'Votre nouveau mot de passe']) !!}
                     </div>
 
-                        {!! Form::submit('Envoyer', ['class' => 'btn btn-success']) !!}
+                        {!! Form::submit('Envoyer', ['class' => 'btn btn-success pull-right']) !!}
                         {!! Form::close() !!}
+                    <a href="{{route('user.index')}}"><button class="btn btn-primary">Retour</button></a>
                 </div>
             </div>
         </div>
