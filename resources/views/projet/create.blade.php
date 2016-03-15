@@ -46,14 +46,24 @@
         ]) !!}
     </div>
     <div class="form-group">
-        {!! Form::textarea('content', null, [
+        {!! Form::textarea('fiche_identite', null, [
         'class' => 'form-control',
         'placeholder' => 'La fiche d\'identité du contact']) !!}
     </div>
 
     <h1 class="text-center">DESCRIPTIF DU PROJET</h1>
     <div class="form-group">
-        {!! Form::select('type', $type, null, ['class' => 'form-control']) !!}
+        {!! Form::select('type', array('site' => 'Site internet',
+        '3d' => '3D',
+        '2d' => 'Animation 2D',
+        'multi' => 'Installation Multimédia',
+        'jeu' => 'Jeu vidéo',
+        'dvd' => 'DVD',
+        'print' => 'PRINT',
+        'CD' => 'CD-ROM',
+        'evenement' => 'Evènement',
+        'Autre'=> 'Autre : à préciser dans la demande'),
+         ['class' => 'form-control']) !!}
 
 
     </div>

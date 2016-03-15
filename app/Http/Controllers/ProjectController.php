@@ -47,29 +47,29 @@ class ProjectController extends Controller
     public function store(Requests\ValidateProjectRequest $request)
     {
         //
-        $projet = new Project;
+        $project = new Project;
 
-        $projet->user_id  = $request->user_id;
-        $projet->nom_projet = $request->nom_projet;
-        $projet->name  = $request->name;
-        $projet->fonction  = $request->fonction;
-        $projet->adresse  = $request->adresse;
-        $projet->email  = $request->email;
-        $projet->tel  = $request->tel;
-        $projet->fiche_identite  = $request->fiche_identite;
-        $projet->type  = $request->type;
-        $projet->contexte  = $request->contexte;
-        $projet->demande  = $request->demande;
-        $projet->objectif  = $request->objectif;
-        $projet->contrainte  = $request->contrainte;
+        $project->user_id  = $request->user_id;
+        $project->nom_projet = $request->nom_projet;
+        $project->name  = $request->name;
+        $project->fonction  = $request->fonction;
+        $project->adresse  = $request->adresse;
+        $project->email  = $request->email;
+        $project->tel  = $request->tel;
+        $project->fiche_identite  = $request->fiche_identite;
+        $project->type  = $request->type;
+        $project->contexte  = $request->contexte;
+        $project->demande  = $request->demande;
+        $project->objectif  = $request->objectif;
+        $project->contrainte  = $request->contrainte;
 
 
 
-        $projet->save();
+        $project->save();
 
         return redirect()
-            ->route('projet.show', $projet->id)
-            ->with(compact('post'));
+            ->route('projet.show', $project->id)
+            ->with(compact('project'));
 
     }
 
@@ -101,6 +101,11 @@ class ProjectController extends Controller
     public function edit($id)
     {
         //
+        $project = Project::find($id);
+        $users  = User::all()->lists('name', 'id');
+        $type   = Project::all()->lists('type');
+
+        return view('projet.edit')->with(compact('project', 'users', 'type'));
     }
 
     /**
@@ -110,9 +115,30 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Requests\ValidateProjectRequest $request, $id)
     {
         //
+        $project = Project::find($id);
+
+        $project->user_id  = $request->user_id;
+        $project->nom_projet = $request->nom_projet;
+        $project->name  = $request->name;
+        $project->fonction  = $request->fonction;
+        $project->adresse  = $request->adresse;
+        $project->email  = $request->email;
+        $project->tel  = $request->tel;
+        $project->fiche_identite  = $request->fiche_identite;
+        $project->type  = $request->type;
+        $project->contexte  = $request->contexte;
+        $project->demande  = $request->demande;
+        $project->objectif  = $request->objectif;
+        $project->contrainte  = $request->contrainte;
+
+        /* $post->user_id = $request->user_id;*/
+
+        $project->update();
+
+        return redirect()->route('projet.show', $project->id);
     }
 
     /**
@@ -124,5 +150,10 @@ class ProjectController extends Controller
     public function destroy($id)
     {
         //
+        $project = Project::find($id);
+        $project->delete();
+
+
+        return redirect()->route('projet.index');
     }
 }

@@ -88,6 +88,12 @@ class PostController extends Controller
     public function edit($id)
     {
         //
+        $post   = Post::find($id);
+        $users  = User::all()->lists('name', 'id')  ;
+
+        return view('posts.edit')->with(compact('post', 'users'));
+
+
     }
 
     /**
@@ -100,6 +106,15 @@ class PostController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $post = Post::find($id);
+
+        $post->titre   = $request->titre;
+        $post->contenu = $request->contenu;
+
+
+        $post->update();
+
+        return redirect()->route('posts.show', $post->id);
     }
 
     /**
