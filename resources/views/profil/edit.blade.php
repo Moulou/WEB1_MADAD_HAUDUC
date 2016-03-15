@@ -13,8 +13,8 @@
                     <p>Fonction: {{ $user->fonction }}</p>
                     <p>Adresse: {{ $user->adresse }}</p>
                     <p>Téléphone: {{ $user->tel }}</p>
-                    <a href="{{route('user.edit', $user->id)}}"><button class="btn btn-success pull-right">Modifier</button></a>
                 </div>
+                <a href=""><button class="btn btn-success">Modifier</button></a>
             </div>
         </div>
     </div>
