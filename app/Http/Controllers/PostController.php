@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -47,7 +48,7 @@ class PostController extends Controller
         //
         $post = new Post;
 
-        $post->user_id  = $request->user_id;
+        $post->user_id  = Auth::user()->id;
         $post->titre    = $request->titre;
         $post->contenu  = $request->contenu;
 
@@ -110,5 +111,10 @@ class PostController extends Controller
     public function destroy($id)
     {
         //
+        $post = Post::find($id);
+        $post->delete();
+
+
+        return redirect()->route('posts.index');
     }
 }
