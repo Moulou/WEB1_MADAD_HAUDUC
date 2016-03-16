@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
+    public function __construct() {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -17,8 +20,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user = Auth::user();
-        return view('profil.profil')->with(compact('user'));
+            $user = Auth::user();
+            return view('profil.profil')->with(compact('user'));
+
     }
 
     /**
@@ -61,8 +65,12 @@ class UserController extends Controller
      */
     public function edit($id)
     {
+        if(Auth::user()->id == $id) {
         $user = User::find($id);
         return view('profil.edit')->with(compact('user'));
+        } else {
+            return redirect()->route('user.edit', Auth::user()->id);
+        }
     }
 
     /**

@@ -11,6 +11,9 @@ use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
+    public function __construct() {
+        $this->middleware('auth', ['except' => ['index', 'show']]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -87,11 +90,14 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
-        $post   = Post::find($id);
-        $users  = User::all()->lists('name', 'id')  ;
+        $post = Post::find($id);
+        if(Auth::user()->id == $post->user_id) {
+            $users = User::all()->lists('name', 'id');
 
-        return view('posts.edit')->with(compact('post', 'users'));
+            return view('posts.edit')->with(compact('post', 'users'));
+        } else {
+            return redirect()->route('posts.index')->with(['erreur' => 'Vous ne pouvez pas modifier un article qui n\'est pas le votre']);
+        }
 
 
     }
