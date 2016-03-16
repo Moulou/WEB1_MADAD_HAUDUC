@@ -38,6 +38,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::resource('/projet', 'ProjectController');
 
     Route::resource('/user', 'UserController');
+    Route::resource('/commentaires', 'CommentaireController');
 
     Route::get('/contact', function(){
         return view('contact.contact');

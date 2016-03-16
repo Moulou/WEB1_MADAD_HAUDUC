@@ -18,6 +18,7 @@
                             <a href="{{route('posts.create')}}">
                                 <button class="btn btn-lg btn-block btn-info">Ecrire un article</button>
                             </a>
+                            <br/>
 
                         </div>
 
@@ -31,20 +32,14 @@
                             </a>
                         </div>
 
-                        <div class="col-md-5 col-md-offset-1">
+                        <div class="col-md-6 col-md-offset-3">
                             <br/>
                             <a href="{{route('posts.index')}}">
-                                <button class="btn btn-lg btn-block btn-danger">Moderer les articles</button>
+                                <button class="btn btn-lg btn-block btn-danger">Modérer</button>
                             </a>
 
                         </div>
 
-                        <div class="col-md-5">
-                            <br/>
-                            <a href="{{route('projet.create')}}">
-                                <button class="btn btn-lg btn-block btn-danger">Moderer les projets</button>
-                            </a>
-                        </div>
 
                     </div>
                 <br/>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Commentaire;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -75,7 +76,8 @@ class PostController extends Controller
         try{
 
             $post = Post::findOrFail($id);
-            return view('posts.show')->with(compact('post'));
+            $commentaires = Commentaire::orderBy('created_at', 'DESC')->get();
+            return view('posts.show')->with(compact('post', 'commentaires'));
 
         }catch(\Exception $e){
             return redirect()->route('posts.index')->with(['erreur' => 'Article introuvable']);
