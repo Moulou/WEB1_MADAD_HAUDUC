@@ -10,6 +10,7 @@
         <button class="btn btn-success">Retour</button>
     </a>
     <hr>
+    @if(\Illuminate\Support\Facades\Auth::check())
     {!! Form::open(['route' => 'commentaires.store', 'method' => 'POST']) !!}
 
 
@@ -25,7 +26,7 @@
     {!! Form::submit('Envoyer', ['class' => 'btn btn-success']) !!}
     {!! Form::close() !!}
     <hr>
-
+    @endif
     @foreach($commentaires as $commentaire)
         @if($commentaire->post_id == $post->id)
             @if(Auth::check() && Auth::user()->id == $commentaire->user_id)
