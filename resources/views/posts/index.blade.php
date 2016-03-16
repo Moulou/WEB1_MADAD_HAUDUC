@@ -15,7 +15,7 @@
 
         @if(Auth::check() && Auth::user()->id == $post->user_id)
             <a href="{{route('posts.edit', $post->id)}}">
-                <button class="btn btn-info">Editer l'article</button>gi
+                <button class="btn btn-info">Editer l'article</button>
             </a>
             <form action="{{route('posts.destroy', $post->id)}}" method="POST">
                 {{csrf_field()}}
