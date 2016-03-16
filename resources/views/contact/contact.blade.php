@@ -3,8 +3,13 @@
 @section('content')
     <div class ="container-fluid">
 
+        <h1 class="text-center">Contactez-nous</h1>
+
         <div class="form-group">
-            {{\Illuminate\Support\Facades\Auth::user()->name}}
+            {!! Form::email('adressemail', null, [
+                'class' => 'form-control',
+                'placeholder' => 'Votre adresse email'
+            ]) !!}
         </div>
 
         <div class="form-group">
