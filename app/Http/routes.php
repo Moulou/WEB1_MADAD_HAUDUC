@@ -44,5 +44,7 @@ Route::group(['middleware' => ['web']], function () {
         return view('contact.contact');
     });
 
-    Route::get('/admin')->middleware('Administrateur');
+    Route::get('/admin', function(){
+        return view('admin.index');
+    });
 });

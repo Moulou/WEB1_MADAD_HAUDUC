@@ -32,13 +32,15 @@
                             </a>
                         </div>
 
+                        @if(Auth::check() && Auth::user()->admin == 1)
                         <div class="col-md-6 col-md-offset-3">
                             <br/>
-                            <a href="{{route('posts.index')}}">
+                            <a href="{{\Illuminate\Support\Facades\URL::asset('/admin')}}">
                                 <button class="btn btn-lg btn-block btn-danger">Modérer</button>
                             </a>
 
                         </div>
+                        @endif
 
 
                     </div>

@@ -42,7 +42,7 @@ class CommentaireController extends Controller
         $commentaire = new Commentaire;
 
         $commentaire->user_id  = Auth::user()->id;
-        $commentaire->post_id    = $request->post_id;
+        $commentaire->post_id  = $request->post_id;
         $commentaire->content  = $request->contenu;
 
         $commentaire->save();
