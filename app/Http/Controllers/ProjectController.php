@@ -22,7 +22,7 @@ class ProjectController extends Controller
     {
         //Retourne tout les projets
 
-        $projects = Project::all();
+        $projects = Project::orderby('created_at', 'DESC')->get();
         return view('projet.index')->with(compact('projects'));
     }
 
