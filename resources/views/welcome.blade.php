@@ -30,6 +30,22 @@
                                 <button class="btn btn-lg btn-block btn-info">Soumettre un projet</button>
                             </a>
                         </div>
+
+                        <div class="col-md-5 col-md-offset-1">
+                            <br/>
+                            <a href="{{route('posts.index')}}">
+                                <button class="btn btn-lg btn-block btn-danger">Moderer les articles</button>
+                            </a>
+
+                        </div>
+
+                        <div class="col-md-5">
+                            <br/>
+                            <a href="{{route('projet.create')}}">
+                                <button class="btn btn-lg btn-block btn-danger">Moderer les projets</button>
+                            </a>
+                        </div>
+
                     </div>
                 <br/>
                 </div>
