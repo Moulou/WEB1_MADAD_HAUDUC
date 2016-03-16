@@ -53,7 +53,9 @@
 
     <h1 class="text-center">DESCRIPTIF DU PROJET</h1>
     <div class="form-group">
-        {!! Form::select('type', array('site' => 'Site internet',
+        {!! Form::select('type', array(
+        'vide' => 'Sélectionner le type du projet',
+        'site' => 'Site internet',
         '3d' => '3D',
         '2d' => 'Animation 2D',
         'multi' => 'Installation Multimédia',
