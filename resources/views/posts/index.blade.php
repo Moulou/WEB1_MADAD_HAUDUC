@@ -2,8 +2,6 @@
 
 @section('content')
 
-
-
     @foreach($posts as $post)
         <h3>{{$post->titre}}</h3>
         <p>{{$post->contenu}}</p>
@@ -21,8 +19,7 @@
                 <button class="btn btn-danger">Supprimer l'article</button>
                 @endif
             </form>
-
+            <hr>
 
             @endforeach
-
 @endsection
