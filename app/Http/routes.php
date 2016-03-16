@@ -43,4 +43,6 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/contact', function(){
         return view('contact.contact');
     });
+
+    Route::get('/admin')->middleware('Administrateur');
 });

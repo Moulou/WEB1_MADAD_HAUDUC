@@ -17,7 +17,7 @@ class ValidateProjectRequest extends Request
     }
 
     /**
-     * Get the validation rules that apply to the request.
+     * Get the admin rules that apply to the request.
      *
      * @return array
      */
