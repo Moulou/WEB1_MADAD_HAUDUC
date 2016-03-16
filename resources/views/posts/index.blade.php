@@ -1,8 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-10">
     @foreach($posts as $post)
+
         <h3>{{$post->titre}}</h3>
         <p>{{$post->contenu}}</p>
         <a href="{{route('posts.show', $post->id)}}">
@@ -17,9 +20,12 @@
                 {{csrf_field()}}
                 <input type="hidden" name="_method" value="DELETE">
                 <button class="btn btn-danger">Supprimer l'article</button>
-                @endif
+        @endif
             </form>
             <hr>
 
             @endforeach
+        </div>
+    </div>
+</div>
 @endsection
