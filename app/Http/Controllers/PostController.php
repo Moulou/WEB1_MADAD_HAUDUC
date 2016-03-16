@@ -23,7 +23,7 @@ class PostController extends Controller
     {
         //Retourne tout les posts
 
-        $posts = Post::all();
+        $posts = Post::orderBy('created_at', 'DESC')->get();
         return view('posts.index')->with(compact('posts'));
     }
 

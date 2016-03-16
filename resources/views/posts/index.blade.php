@@ -8,6 +8,7 @@
 
         <h3>{{$post->titre}}</h3>
         <p>{{$post->contenu}}</p>
+                <p class="pull-right">{{$post->created_at}}</p>
         <a href="{{route('posts.show', $post->id)}}">
             <button class="btn btn-success">Voir l'article</button>
         </a>
