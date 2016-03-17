@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
 
 class ProjectController extends Controller
 {
@@ -52,8 +53,8 @@ class ProjectController extends Controller
     {
         //
         $project = new Project;
-
-        $project->user_id  = $request->user_id;
+        $project->etat = 1;
+        $project->user_id  = Auth::user()->id;
         $project->nom_projet = $request->nom_projet;
         $project->name  = $request->name;
         $project->fonction  = $request->fonction;

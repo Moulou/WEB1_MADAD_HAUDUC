@@ -39,12 +39,9 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::resource('/user', 'UserController');
     Route::resource('/commentaires', 'CommentaireController');
+    Route::resource('/admin', 'AdminController');
 
     Route::get('/contact', function(){
         return view('contact.contact');
-    });
-
-    Route::get('/admin', function(){
-        return view('admin.index');
     });
 });
