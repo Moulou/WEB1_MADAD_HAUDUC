@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
     <div class="container-fluid">
         <h2 class="text-center">{{$project->nom_projet}} <br> Auteur : {{$project->user->name}} </h2>
         <p>Fonction: {{$project->user->fonction}}</p>
