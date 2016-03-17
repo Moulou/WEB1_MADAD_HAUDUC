@@ -31,3 +31,21 @@ $factory->define(App\Models\Post::class, function (Faker\Generator $faker) {
         'contenu' => $faker->text,
     ];
 });
+
+$factory->define(App\Models\Project::class, function (Faker\Generator $faker) {
+    return [
+        'nom_projet' => $faker->text(10),
+        'user_id' => mt_rand(1,15),
+        'name' => $faker->name,
+        'fonction' => $faker->text(10),
+        'adresse' => $faker->text(10),
+        'email' => $faker->email,
+        'tel' => $faker->phoneNumber,
+        'fiche_identite' => $faker->text(50),
+        'type' => $faker->numberBetween(1,6),
+        'contexte' => $faker->text(50),
+        'demande' => $faker->text(50),
+        'objectif' => $faker->text(20),
+        'contrainte' => $faker->text(20)
+    ];
+});
