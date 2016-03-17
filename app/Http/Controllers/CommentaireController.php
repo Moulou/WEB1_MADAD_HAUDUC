@@ -47,7 +47,7 @@ class CommentaireController extends Controller
 
         $commentaire->save();
 
-        return redirect()->route('posts.show', $request->post_id);
+        return redirect()->route('posts.show', $commentaire->post_id);
     }
 
     /**
@@ -92,10 +92,12 @@ class CommentaireController extends Controller
      */
     public function destroy($id)
     {
+
         $commentaire = Commentaire::find($id);
+        $post_id = $commentaire->post_id;
         $commentaire->delete();
 
 
-        return redirect()->route('posts.index');
+        return redirect()->route('posts.show', $post_id);
     }
 }

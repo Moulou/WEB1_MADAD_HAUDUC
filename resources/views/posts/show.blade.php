@@ -30,7 +30,11 @@
     @foreach($commentaires as $commentaire)
         @if($commentaire->post_id == $post->id)
             @if(Auth::check() && Auth::user()->id == $commentaire->user_id)
-                <a href="{{route('commentaires.destroy', $commentaire->id)}}" class="pull-right"><i class="fa fa-times"></i></a>
+                <form action="{{route('commentaires.destroy', $commentaire->id)}}" method="POST">
+                    {{csrf_field()}}
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button class="btn btn-danger pull-right"><i class="fa fa-times"></i></button>
+                </form>
             @endif
             <h3>{{$commentaire->user->name}}</h3>
             <p>{{$commentaire->content}}</p>
