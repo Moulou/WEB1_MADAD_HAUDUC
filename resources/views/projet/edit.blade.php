@@ -4,7 +4,6 @@
     @include('partials.projet.errors')
     <div class="container-fluid">
         <h1 class="text-center">MODIFICATION DE LA DEMANDE D’INSCRIPTION A LA BOURSE AUX PROJETS DE L’IIM</h1>
-
         {!! Form::model($project, ['route' => ['project.update', $project->id], 'method' => 'PUT']) !!}
 
 

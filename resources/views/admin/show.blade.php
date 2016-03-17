@@ -48,7 +48,7 @@
         <p>Les éventuelles contraintes : {{$project->contrainte}}</p>
 
 
-        <a href="{{route('projet.index')}}">
+        <a href="{{route('admin.index')}}">
             <button class="btn btn-success">Retour</button>
         </a>
 

@@ -16,8 +16,8 @@ class Administrateur
      */
     public function handle($request, Closure $next)
     {
-        if(Auth::check() && Auth::user()->admin == 1){
-            return redirect()->route('admin.index');
+        if(Auth::check() && Auth::user()->admin == 0){
+            return redirect()->route('/');
         }
 
     return $next($request);
