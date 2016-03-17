@@ -11,7 +11,7 @@
                         {!! csrf_field() !!}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">Nom</label>
+                            <label class="col-md-4 control-label">Votre nom</label>
 
                             <div class="col-md-6">
                                 <input type="text" class="form-control" name="name" value="{{ old('name') }}">
@@ -24,10 +24,51 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('fonction') ? ' has-error' : '' }}">
+                            <label class="col-md-4 control-label">Votre fonction</label>
 
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="name" value="{{ old('fonction') }}">
+
+                                @if ($errors->has('fonction'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('fonction') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('adresse') ? ' has-error' : '' }}">
+                            <label class="col-md-4 control-label">Votre adresse</label>
+
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="name" value="{{ old('adresse') }}">
+
+                                @if ($errors->has('adresse'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('adresse') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+
+                        <div class="form-group{{ $errors->has('tel') ? ' has-error' : '' }}">
+                            <label class="col-md-4 control-label">Votre numéro de téléphone </label>
+
+                            <div class="col-md-6">
+                                <input type="tel" class="form-control" name="email" value="{{ old('tel') }}">
+
+                                @if ($errors->has('tel'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('tel') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">Adresse E-Mail </label>
+                            <label class="col-md-4 control-label">Votre adresse E-Mail </label>
 
                             <div class="col-md-6">
                                 <input type="email" class="form-control" name="email" value="{{ old('email') }}">
@@ -53,6 +94,7 @@
                                 @endif
                             </div>
                         </div>
+
 
                         <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
                             <label class="col-md-4 control-label">Confirmation du mot de passe</label>

@@ -11,11 +11,11 @@
                         <h3>{{$project->name}}</h3>
                         <p>Auteur: {{$project->user->name}}</p>
                         @if($project->etat == 0)
-                            <p style="color:red;">Projet refusé</p>
+                            <p style="color:red;">Projet refusÃ©</p>
                         @elseif($project->etat == 1)
                             <p style="color:darkgrey;">Projet en attente</p>
                         @elseif($project->etat == 2)
-                            <p style="color:green;">Projet validé</p>
+                            <p style="color:green;">Projet validÃ©</p>
                         @endif
                     </div>
                 </div>

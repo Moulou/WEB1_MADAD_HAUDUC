@@ -24,6 +24,7 @@
                             </div>
                         </div>
 
+
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label class="col-md-4 control-label">Mot de passe</label>
 
