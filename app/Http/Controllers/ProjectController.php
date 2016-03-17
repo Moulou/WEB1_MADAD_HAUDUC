@@ -62,7 +62,27 @@ class ProjectController extends Controller
         $project->email  = $request->email;
         $project->tel  = $request->tel;
         $project->fiche_identite  = $request->fiche_identite;
-        $project->type  = $request->type;
+        if($request->type == "site") {
+            $project->type  = 1;
+        }elseif($request->type == "3d"){
+            $project->type  = 2;
+        }elseif($request->type == "2d"){
+            $project->type  = 3;
+        }elseif($request->type == "multi"){
+            $project->type  = 4;
+        }elseif($request->type == "jeu"){
+            $project->type  = 5;
+        }elseif($request->type == "dvd"){
+            $project->type  = 6;
+        }elseif($request->type == "print"){
+            $project->type  = 7;
+        }elseif($request->type == "CD"){
+            $project->type  = 8;
+        }elseif($request->type == "evenement"){
+            $project->type  = 9;
+        }elseif($request->type == "Autre"){
+            $project->type  = 10;
+        }
         $project->contexte  = $request->contexte;
         $project->demande  = $request->demande;
         $project->objectif  = $request->objectif;
