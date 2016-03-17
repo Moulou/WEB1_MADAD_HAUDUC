@@ -15,9 +15,8 @@ class AdminController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function __construct()
-    {
-        $this->middleware('Administrateur', ['only' => ['admin']]);
+    public function __construct() {
+        $this->middleware('auth', ['except' => ['index', 'show']]);
     }
 
     public function index()
@@ -102,9 +101,8 @@ class AdminController extends Controller
     {
         //
         try{
-
-            $project = Project::findOrFail($id);
-            return view('admin.show')->with(compact('project'));
+            $projects = Project::findOrFail($id);
+            return view('admin.show')->with(compact('projects'));
 
         }catch(\Exception $e){
             return redirect()->route('admin.index')->with(['erreur' => 'Projet introuvable']);

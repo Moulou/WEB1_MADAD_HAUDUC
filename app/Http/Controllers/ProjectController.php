@@ -13,7 +13,6 @@ class ProjectController extends Controller
 {
     public function __construct() {
         $this->middleware('auth', ['except' => ['index', 'show']]);
-        $this->middleware('Administrateur', ['only'=> ['admin.index']]);
     }
     /**
      * Display a listing of the resource.
@@ -140,9 +139,15 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Requests\ValidateProjectRequest $request, $id)
+    public function update(Request $request, $id)
     {
-        //
+        if($request->admin == 'admin'){
+            $project = Project::find($id);
+            $project->etat = $request->etat;
+            $project->update();
+
+            return redirect()->route('admin.index', $project->id);
+        } else {
         $project = Project::find($id);
 
         $project->user_id  = $request->user_id;
@@ -164,6 +169,7 @@ class ProjectController extends Controller
         $project->update();
 
         return redirect()->route('projet.show', $project->id);
+        }
     }
 
     /**
