@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>PAGE ADMINISTRATEUR</h1>
+    <h1 class="text-center">PAGE ADMINISTRATEUR</h1>
     {{--<div class="row">
         <div class="col-md-2 col-md-offset-1">
             <a href="{{route('admin.showValidate')}}"><button class="btn btn-success">Projet validé</button></a>
@@ -65,6 +65,7 @@
                         <a href="{{route('admin.show', $project->id)}}">
                             <button class="btn btn-default">Voir le projet en entier</button>
                         </a>
+
                         {{--<a href="{{route('projet.edit', $project->id)}}">
                             <button class="btn btn-info">Modifier le projet</button>
                         </a>
