@@ -26,7 +26,7 @@ class ValidateContactRequest extends Request
     {
         return [
             //
-            'adressemail' => 'required',
+            'nom' => 'required',
             'sujet' => 'required|min:5',
             'message' => 'required|min:10'
 
@@ -39,8 +39,7 @@ class ValidateContactRequest extends Request
         public function messages()
     {
         return [
-            'adressemail.required' => 'Veuillez indiquer une adresse mail',
-            'adressemail.email' => 'Veuillez entrer une adresse mail valide',
+            'nom.required' => 'Veuillez indiquer votre nom',
             'sujet.required' => 'Le sujet est obligatoire',
             'sujet.min' => 'Le sujet doit faire au moins cinq caractères',
             'message.required' => 'Veuillez entrer un message',

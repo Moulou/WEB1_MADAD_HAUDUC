@@ -14,15 +14,15 @@
                     {!! Form::text('Nom', null,
                         array(
                               'class'=>'form-control',
-                              'placeholder'=>'Nom')) !!}
+                              'placeholder'=>'Votre nom')) !!}
                 </div>
 
                 <div class="form-group">
 
-                    {!! Form::text('email', null,
+                    {!! Form::text('Sujet', null,
                         array(
                               'class'=>'form-control',
-                              'placeholder'=>'Email')) !!}
+                              'placeholder'=>'Votre sujet')) !!}
                 </div>
 
                 <div class="form-group">

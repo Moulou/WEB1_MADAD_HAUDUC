@@ -12,6 +12,7 @@
                             <button class="btn btn-success">Voir l'article</button>
                         </a>
 
+
                         @if(Auth::check() && Auth::user()->admin == 1 || Auth::check() && Auth::user()->id == $post->user_id)
                             <form action ="{{route('posts.edit', $post->id)}}">
                                 <button class="btn btn-info">Editer l'article</button>
