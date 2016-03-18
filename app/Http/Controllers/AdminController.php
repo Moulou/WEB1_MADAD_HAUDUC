@@ -6,6 +6,8 @@ use App\Models\Project;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\URL;
 
 class AdminController extends Controller
 {
@@ -102,8 +104,8 @@ class AdminController extends Controller
     {
         //
         try{
-            $projects = Project::findOrFail($id);
-            return view('admin.show')->with(compact('projects'));
+            $project = Project::findOrFail($id);
+            return view('admin.show')->with(compact('project'));
 
         }catch(\Exception $e){
             return redirect()->route('admin.index')->with(['erreur' => 'Projet introuvable']);

@@ -62,10 +62,10 @@
                             {!! Form::close() !!}
                         @endif
 
-                        {{--<a href="{{route('admin.show', $project->id)}}">
+                        <a href="{{route('admin.show', $project->id)}}">
                             <button class="btn btn-default">Voir le projet en entier</button>
                         </a>
-                        <a href="{{route('projet.edit', $project->id)}}">
+                        {{--<a href="{{route('projet.edit', $project->id)}}">
                             <button class="btn btn-info">Modifier le projet</button>
                         </a>
 
