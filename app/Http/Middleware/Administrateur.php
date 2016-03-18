@@ -16,10 +16,12 @@ class Administrateur
      */
     public function handle($request, Closure $next)
     {
-        if(Auth::check() && Auth::user()->admin == 0){
-            return redirect()->route('/');
+
+        if (Auth::user()->admin == 1) {
+            return $next($request);
         }
 
-    return $next($request);
+        return reponse('Unhautorized', 401);
+
     }
 }

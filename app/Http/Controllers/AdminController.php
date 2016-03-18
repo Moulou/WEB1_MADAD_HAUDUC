@@ -17,6 +17,7 @@ class AdminController extends Controller
 
     public function __construct() {
         $this->middleware('auth', ['except' => ['index', 'show']]);
+        $this->middleware('Administrateur');
     }
 
     public function index()
