@@ -26,39 +26,39 @@
                             {!! Form::model($project, ['route' => ['projet.update', $project->id], 'method' => 'PUT']) !!}
                             {!! Form::hidden('admin', 'admin') !!}
                             {!! Form::hidden('etat', 1) !!}
-                            {!! Form::submit('<i class="fa fa-clock-o"></i>', ['class' => 'btn btn-default']) !!}
+                            {!! Form::submit('Mettre en attente', ['class' => 'btn btn-warning']) !!}
                             {!! Form::close() !!}
 
                             {!! Form::model($project, ['route' => ['projet.update', $project->id], 'method' => 'PUT']) !!}
                             {!! Form::hidden('admin', 'admin') !!}
                             {!! Form::hidden('etat', 2) !!}
-                            {!! Form::submit('<i class="fa fa-check"></i>', ['class' => 'btn btn-default']) !!}
+                            {!! Form::submit('Valider', ['class' => 'btn btn-success']) !!}
                             {!! Form::close() !!}
                         @elseif($project->etat == 1)
                             <p style="color:darkgrey;" class="pull-right">Projet en attente <i class="fa fa-clock-o"></i></p>
                             {!! Form::model($project, ['route' => ['projet.update', $project->id], 'method' => 'PUT']) !!}
                             {!! Form::hidden('admin', 'admin') !!}
                             {!! Form::hidden('etat', 0) !!}
-                            {!! Form::submit('<i class="fa fa-times"></i>', ['class' => 'btn btn-default']) !!}
+                            {!! Form::submit('Refuser', ['class' => 'btn btn-danger']) !!}
                             {!! Form::close() !!}
 
                             {!! Form::model($project, ['route' => ['projet.update', $project->id], 'method' => 'PUT']) !!}
                             {!! Form::hidden('admin', 'admin') !!}
                             {!! Form::hidden('etat', 2) !!}
-                            {!! Form::submit('<i class="fa fa-check"></i>', ['class' => 'btn btn-default']) !!}
+                            {!! Form::submit('valider', ['class' => 'btn btn-success']) !!}
                             {!! Form::close() !!}
                         @elseif($project->etat == 2)
                             <p style="color:green;" class="pull-right">Projet validé <i class="fa fa-check"></i></p>
                             {!! Form::model($project, ['route' => ['projet.update', $project->id], 'method' => 'PUT']) !!}
                             {!! Form::hidden('admin', 'admin') !!}
                             {!! Form::hidden('etat', 0) !!}
-                            {!! Form::submit('<i class="fa fa-times"></i>', ['class' => 'btn btn-default']) !!}
+                            {!! Form::submit('Refuser', ['class' => 'btn btn-danger']) !!}
                             {!! Form::close() !!}
 
                             {!! Form::model($project, ['route' => ['projet.update', $project->id], 'method' => 'PUT']) !!}
                             {!! Form::hidden('admin', 'admin') !!}
                             {!! Form::hidden('etat', 1) !!}
-                            {!! Form::submit('<i class="fa fa-clock-o"></i>', ['class' => 'btn btn-default']) !!}
+                            {!! Form::submit('Mettre en attente', ['class' => 'btn btn-warning']) !!}
                             {!! Form::close() !!}
                         @endif
 

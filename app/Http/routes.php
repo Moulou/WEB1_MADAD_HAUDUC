@@ -42,9 +42,7 @@ Route::group(['middleware' => ['web']], function () {
 
 
    Route::group(['admin', 'middleware' => 'Administrateur'], function(){
-        Route::get('/admin', function(){
-            return view('admin.index');
-        });
+       Route::resource('/admin', 'AdminController');
     });
 
 

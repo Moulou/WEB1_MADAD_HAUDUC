@@ -21,7 +21,7 @@ class Administrateur
             return $next($request);
         }
 
-        return reponse('Unhautorized', 401);
+        return response('Unhautorized', 401);
 
     }
 }
