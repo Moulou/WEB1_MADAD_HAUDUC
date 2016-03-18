@@ -107,8 +107,10 @@ class ProjectController extends Controller
     {
         //
         try{
-
             $project = Project::findOrFail($id);
+            if($project->etat == 1 || $project->etat == 0) {
+                return view('project.index');
+            }
             return view('projet.show')->with(compact('project'));
 
         }catch(\Exception $e){
@@ -139,15 +141,8 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Requests\ValidateProjectRequest $request, $id)
     {
-        if($request->admin == 'admin'){
-            $project = Project::find($id);
-            $project->etat = $request->etat;
-            $project->update();
-
-            return redirect()->route('admin.index', $project->id);
-        } else {
         $project = Project::find($id);
 
         $project->user_id  = $request->user_id;
@@ -164,12 +159,10 @@ class ProjectController extends Controller
         $project->objectif  = $request->objectif;
         $project->contrainte  = $request->contrainte;
 
-        /* $post->user_id = $request->user_id;*/
 
         $project->update();
 
         return redirect()->route('projet.show', $project->id);
-        }
     }
 
     /**

@@ -121,11 +121,6 @@ class AdminController extends Controller
     public function edit($id)
     {
         //
-        $project = Project::find($id);
-        $users  = User::all()->lists('name', 'id');
-        $type   = Project::all()->lists('type');
-
-        return view('admin.edit')->with(compact('project', 'users', 'type'));
     }
 
     /**
@@ -140,25 +135,11 @@ class AdminController extends Controller
         //
         $project = Project::find($id);
 
-        $project->user_id  = $request->user_id;
-        $project->nom_projet = $request->nom_projet;
-        $project->name  = $request->name;
-        $project->fonction  = $request->fonction;
-        $project->adresse  = $request->adresse;
-        $project->email  = $request->email;
-        $project->tel  = $request->tel;
-        $project->fiche_identite  = $request->fiche_identite;
-        $project->type  = $request->type;
-        $project->contexte  = $request->contexte;
-        $project->demande  = $request->demande;
-        $project->objectif  = $request->objectif;
-        $project->contrainte  = $request->contrainte;
-
-        /* $post->user_id = $request->user_id;*/
+        $project->etat = $request->etat;
 
         $project->update();
 
-        return redirect()->route('admin.show', $project->id);
+        return redirect()->route('admin.index');
     }
 
     /**
@@ -170,10 +151,5 @@ class AdminController extends Controller
     public function destroy($id)
     {
         //
-        $project = Project::find($id);
-        $project->delete();
-
-
-        return redirect()->route('admin.index');
     }
 }

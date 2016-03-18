@@ -42,7 +42,8 @@
     <div class="form-group">
         {!! Form::tel('tel', null, [
             'class' => 'form-control',
-            'placeholder' => 'Le numéro de téléphone du contact'
+            'placeholder' => 'Le numéro de téléphone du contact',
+            'pattern' => '^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$'
         ]) !!}
     </div>
     <div class="form-group">
