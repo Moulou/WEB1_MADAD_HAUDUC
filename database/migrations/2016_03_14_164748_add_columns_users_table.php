@@ -15,7 +15,7 @@ class AddColumnsUsersTable extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->string('fonction')->nullable()->after('name');
             $table->string('adresse')->nullable()->after('fonction');
-            $table->integer('tel')->nullable()->after('adresse');
+            $table->string('tel', 10)->nullable()->after('adresse');
         });
     }
 
