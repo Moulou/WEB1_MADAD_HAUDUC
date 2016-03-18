@@ -2,8 +2,6 @@
 
 @section('content')
 
-
-
     @foreach($projects as $project)
         @if($project->etat == 2)
             <h3>{{$project->nom_projet}}</h3>

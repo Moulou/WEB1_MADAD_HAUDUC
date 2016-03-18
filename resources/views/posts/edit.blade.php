@@ -3,12 +3,9 @@
 @section('content')
     @include('partials.post.errors')
     <div class="container-fluid">
-        <h1 class="text-center">POSTER UN ARTICLE</h1>
-
+        <h1 class="text-center">EDITER UN ARTICLE</h1>
 
         {!! Form::model($post, ['route' => ['posts.update', $post->id], 'method' => 'PUT']) !!}
-
-
 
         <div class="form-group">
             {!! Form::text('titre', null, [

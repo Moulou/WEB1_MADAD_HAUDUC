@@ -93,7 +93,7 @@ class PostController extends Controller
     public function edit($id)
     {
         $post = Post::find($id);
-        if(Auth::user()->id == $post->user_id) {
+        if(Auth::user()->id == $post->user_id || Auth::user()->admin == 1) {
             $users = User::all()->lists('name', 'id');
 
             return view('posts.edit')->with(compact('post', 'users'));

@@ -41,7 +41,7 @@
                     <div class="form-group">
                         {!! Form::password('password', [
                         'class' => 'form-control',
-                        'placeholder' => 'Votre nouveau mot de passe']) !!}
+                        'placeholder' => 'Votre mot de passe']) !!}
                     </div>
 
                         {!! Form::submit('Envoyer', ['class' => 'btn btn-success pull-right']) !!}

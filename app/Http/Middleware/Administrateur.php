@@ -18,11 +18,11 @@ class Administrateur
     public function handle($request, Closure $next)
     {
 
-        if (Auth::check() && Auth::user()->admin == 1) {
+        if (Auth::check() && Auth::user()->admin == 1) {//Vérifier que l'utilisateur connecté est admin
             return $next($request);
         }
 
-        return redirect('/');
+        return redirect('/');//Sinon il reste à la racine du site
 
     }
 }
