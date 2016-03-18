@@ -22,7 +22,7 @@ class Administrateur
             return $next($request);
         }
 
-        return response('Unhautorized', 401);
+        return redirect('/');
 
     }
 }
