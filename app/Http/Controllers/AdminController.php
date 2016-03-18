@@ -102,8 +102,8 @@ class AdminController extends Controller
     {
         //
         try{
-            $projects = Project::findOrFail($id);
-            return view('admin.show')->with(compact('projects'));
+            $project = Project::findOrFail($id);
+            return view('admin.show')->with(compact('project'));
 
         }catch(\Exception $e){
             return redirect()->route('admin.index')->with(['erreur' => 'Projet introuvable']);
