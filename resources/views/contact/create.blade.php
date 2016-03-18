@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+    @include('partials.post.errors')
     <div class ="container-fluid">
 
         <h1 class="text-center">Contactez-nous</h1>
@@ -26,6 +27,6 @@
         </div>
 
 
-    {!! Form::submit('Envoyer', ['class' => 'btn btn-success']) !!}
+        {!! Form::submit('Envoyer', ['class' => 'btn btn-success']) !!}
     </div>
 @endsection
