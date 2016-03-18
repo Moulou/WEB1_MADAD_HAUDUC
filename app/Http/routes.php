@@ -29,22 +29,23 @@ Route::group(['middleware' => ['web']], function () {
         return view('welcome');
     });
 
-    Route::resource('/posts', 'PostController');
+    Route::resource('/posts', 'PostController'); //route pour les articles
 
     Route::auth();
 
     Route::get('/home', 'HomeController@index');
 
-    Route::resource('/projet', 'ProjectController');
+    Route::resource('/projet', 'ProjectController'); //route pour les projets
 
     Route::resource('/user', 'UserController');
+
     Route::resource('/commentaires', 'CommentaireController');
 
 
-   Route::group(['admin', 'middleware' => 'Administrateur'], function(){
+   Route::group(['admin', 'middleware' => 'Administrateur'], function(){ //groupe de route pour le panel admin
        Route::resource('/admin', 'AdminController');
     });
 
 
-    Route::resource('/contact', 'ContactController');
+    Route::resource('/contact', 'ContactController'); //route pour la page contact
 });

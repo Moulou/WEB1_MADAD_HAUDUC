@@ -3,7 +3,8 @@
 @section('content')
 
     <div class="container-fluid">
-        <h2 class="text-center">{{$project->nom_projet}} <br> Auteur : {{$project->user->name}} </h2>
+        <h2 class="text-center">{{$project->nom_projet}} <br> </h2>
+        <h4 class ="text-center">Auteur : {{$project->user->name}} </h4>
         <p>Fonction: {{$project->user->fonction}}</p>
         <p>Adresse: {{$project->user->adresse}}</p>
         <p>Téléphone: {{$project->user->tel}}</p>

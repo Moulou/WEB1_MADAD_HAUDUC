@@ -38,6 +38,7 @@ class ValidatePostRequest extends Request
     {
         return [
             'titre.required' => 'Le titre de l\'article est obligatoire',
+            'titre.min' => 'Le titre doit contenir au moins 10 caractères',
             'contenu.required' => 'Le contenu est obligatoire',
             'contenu.min' => 'Le contenu doit être supérieur à 20 caractères'
         ];

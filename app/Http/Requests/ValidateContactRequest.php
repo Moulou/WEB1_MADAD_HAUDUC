@@ -13,7 +13,7 @@ class ValidateContactRequest extends Request
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -26,7 +26,7 @@ class ValidateContactRequest extends Request
     {
         return [
             //
-            'adressemail' => 'required|email',
+            'adressemail' => 'required',
             'sujet' => 'required|min:5',
             'message' => 'required|min:10'
 

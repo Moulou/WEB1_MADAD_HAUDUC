@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -17,7 +18,7 @@ class ContactController extends Controller
     {
         //
 
-        return view('contact.create');
+        return view('contact.contact');
     }
 
     /**
@@ -28,6 +29,9 @@ class ContactController extends Controller
     public function create()
     {
         //
+
+
+
     }
 
     /**
@@ -39,7 +43,7 @@ class ContactController extends Controller
     public function store(Requests\ValidateContactRequest $request)
     {
         //
-        return view('contact.create');
+
     }
 
     /**
