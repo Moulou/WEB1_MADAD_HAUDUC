@@ -23,8 +23,9 @@
                                 {{csrf_field()}}
                                 <input type="hidden" name="_method" value="DELETE">
                                 <button class="btn btn-danger">Supprimer l'article</button>
-                        @endif
                             </form>
+                        @endif
+
                         <hr>
                  @endforeach
             </div>
